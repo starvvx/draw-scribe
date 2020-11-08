@@ -22,7 +22,7 @@ a {
     padding: 0;
     position: relative;
     z-index: 0;
-    transition-duration: 0.4s;
+    transition-duration: 1s;
 }
 
 .sidebar {
@@ -37,8 +37,7 @@ a {
     padding: 30px;
     background-color: #444343;
     z-index: 0;
-
-    transition-duration: 0.4s;
+    transition-duration: 1s;
 }
 
 .footer {
@@ -53,7 +52,7 @@ a {
     left: 20px;
     z-index: 1;
     color: #9696c8;
-    transition-duration: 0.4s;
+    transition-duration: 1s;
 }
 
 #sidebartoggler {
@@ -73,7 +72,7 @@ a {
 }
 
 button {
-    background-color: white;
+    background-color: teal;
     border: none;
     color: #c8c8c8;
     padding: 15px 32px;

@@ -4,6 +4,7 @@ var lineColor;
 var cursorX;
 var cursorY;
 
+
 function setup() {
     var canv = createCanvas(windowWidth, windowHeight);
     canv.parent('canvas');
@@ -23,7 +24,7 @@ function setup() {
         color: lineColor
     };
     socket.emit('changeSlider', data);
-
+    // console.log("Pressing");
     socket.on('mouse', newDrawing);
 }
 
@@ -41,6 +42,7 @@ function mousePressed() {
 function mouseDragged() {
     var mousex = mouseX;
     var mousey = mouseY;
+    // console.log("Pressing");
 
     cursorX = 0.90*cursorX+0.10*mousex;
     cursorY = 0.90*cursorY+0.10*mousey;
@@ -51,15 +53,34 @@ function mouseDragged() {
     socket.emit('mouse', data);
 
     noStroke();
-    fill(lineColor[0], lineColor[1], lineColor[2]);
+    var eraser = document.getElementById("isChecked");
+    if(eraser.checked)
+    {
+     fill(255,255,255);
+     lineThickness = parseInt(document.getElementById("eraser").value);
+    }   
+    else
+        fill(lineColor[0], lineColor[1], lineColor[2]);
     ellipse(cursorX, cursorY, lineThickness, lineThickness);
 }
 
 function draw() {
-    document.getElementById("brush-color").style.backgroundColor = "rgb("+lineColor[0]+","+lineColor[1]+","+lineColor[2]+")";
-    if (mouseIsPressed) {
-        mouseDragged();
-    }
+    // var eraser = document.getElementById("isChecked");
+    // if(eraser.checked)
+    // {
+    //     console.log("Selected!!");
+    // }
+    // else
+    // {
+    //     document.getElementById("brush-color").style.backgroundColor = "rgb("+lineColor[0]+","+lineColor[1]+","+lineColor[2]+")";
+    //     if (mouseIsPressed) {
+    //         mouseDragged();
+    //     }
+    // }
+        document.getElementById("brush-color").style.backgroundColor = "rgb("+lineColor[0]+","+lineColor[1]+","+lineColor[2]+")";
+        if (mouseIsPressed) {
+            mouseDragged();
+        }
 }
 
 function changeSlider() {
