@@ -1,3 +1,4 @@
+// hi there 
 var config = require(__dirname + '/config');
 var express = require('express');
 
