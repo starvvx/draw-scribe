@@ -1,0 +1,52 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <title>Let's draw!</title>
+</head>
+
+<body>
+    <input type="checkbox" id="sidebartoggler" name="" value="">
+    <div class="page-wrap">
+      <div class="page-content" id="canvas">
+          <label for="sidebartoggler"><img src="menu.png" width="50" height="50"></label>
+      </div>
+      <div class="sidebar" id="options">
+          <h2>Illus-traitor</h2>
+          <hr>
+          <h4>color</h4>
+          <div id="brush-color"><br></div>
+          <div class="sidebarel" id="colors">
+              <input onInput="changeSlider()" id="r" type="range" min="0" max="255" style="width: 100%;">
+              <input onInput="changeSlider()" id="g" type="range" min="0" max="255" style="width: 100%;">
+              <input onInput="changeSlider()" id="b" type="range" min="0" max="255" style="width: 100%;">
+          </div>
+          <h4>thickness</h4>
+          <div class="siderbarel">
+              <input onInput="changeSlider()" id="thickness" type="range" min="10" max="50" value="25" style="width: 100%;">
+          </div>
+          <hr>
+          <button onclick="saveCanvas()">Download drawing</button>
+          <hr>
+          <h3>What's this?</h3>
+          <p>DrawCollab is a webapp where a team can illustrate their ideas.</p>
+
+      </div>
+    </div>
+
+<script>
+    function saveCanvas() {
+        var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        window.location.href = image; // it will save locally
+    }
+</script>
+    
+</body>
+</html>
