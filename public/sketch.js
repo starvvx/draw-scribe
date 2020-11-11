@@ -3,6 +3,8 @@ var lineThickness;
 var lineColor;
 var cursorX;
 var cursorY;
+var eraserThickness;
+var eraserStatus;
 
 
 function setup() {
@@ -53,11 +55,10 @@ function mouseDragged() {
     socket.emit('mouse', data);
 
     noStroke();
-    var eraser = document.getElementById("isChecked");
-    if(eraser.checked)
+    if(eraserStatus)
     {
      fill(255,255,255);
-     lineThickness = parseInt(document.getElementById("eraser").value);
+     lineThickness = parseInt(document.getElementById("eraserThickness").value);
     }   
     else
         fill(lineColor[0], lineColor[1], lineColor[2]);
@@ -65,18 +66,6 @@ function mouseDragged() {
 }
 
 function draw() {
-    // var eraser = document.getElementById("isChecked");
-    // if(eraser.checked)
-    // {
-    //     console.log("Selected!!");
-    // }
-    // else
-    // {
-    //     document.getElementById("brush-color").style.backgroundColor = "rgb("+lineColor[0]+","+lineColor[1]+","+lineColor[2]+")";
-    //     if (mouseIsPressed) {
-    //         mouseDragged();
-    //     }
-    // }
         document.getElementById("brush-color").style.backgroundColor = "rgb("+lineColor[0]+","+lineColor[1]+","+lineColor[2]+")";
         if (mouseIsPressed) {
             mouseDragged();
@@ -91,6 +80,27 @@ function changeSlider() {
         parseInt(document.getElementById("b").value)
     ];
 
+    var data = {
+        thickness: lineThickness,
+        color: lineColor
+    };
+    socket.emit('changeSlider', data);
+}
+
+function toggleEraser() {
+    if(eraserStatus == true) {
+        eraserStatus = false;
+        lineThickness = parseInt(document.getElementById("thickness").value);
+        lineColor = [
+            parseInt(document.getElementById("r").value), 
+            parseInt(document.getElementById("g").value), 
+            parseInt(document.getElementById("b").value)
+        ];
+    } else {
+        eraserStatus = true;
+        lineThickness = parseInt(document.getElementById("eraserThickness").value);
+        lineColor = [255,255,255];
+    }
     var data = {
         thickness: lineThickness,
         color: lineColor
