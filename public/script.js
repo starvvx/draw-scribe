@@ -1,4 +1,4 @@
-const sockets = io('https://illus-traitor.herokuapp.com')
+const sockets = io('http://localhost:' + config.port.toString())
 const messageContainer = document.getElementById('message-container')
 const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')

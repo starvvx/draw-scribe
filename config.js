@@ -1,5 +1,5 @@
 module.exports = {
-    server: 'illus-traitor.herokuapp',
-    port: 3000,
+    server: 'localhost',
+    port: process.env.PORT,
     timeout: 10
 };
