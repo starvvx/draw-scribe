@@ -18,7 +18,7 @@ function setup() {
     document.getElementById("g").value = lineColor[1].toString(); 
     document.getElementById("b").value = lineColor[2].toString();
 
-    socket = io.connect('http://localhost:' + config.port.toString());
+    socket = io.connect('http://localhost:3000');
 
     lineThickness = parseInt(document.getElementById("thickness").value);
     var data = {
