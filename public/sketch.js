@@ -8,7 +8,7 @@ var eraserStatus;
 
 function setup() {
     // var canv = createCanvas(windowWidth, windowHeight);
-    var canv = createCanvas(0.8*windowWidth, 0.8*windowHeight)
+    var canv = createCanvas(0.8*windowWidth, windowHeight)
     canv.parent('canvas');
     background(255,255,255);
 
@@ -18,7 +18,7 @@ function setup() {
     document.getElementById("g").value = lineColor[1].toString(); 
     document.getElementById("b").value = lineColor[2].toString();
 
-    socket = io.connect('http://localhost:3000');
+    socket = io.connect('http://illus-traitor.herokuapp.com/');
 
     lineThickness = parseInt(document.getElementById("thickness").value);
     var data = {
