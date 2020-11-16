@@ -18,7 +18,7 @@ function setup() {
     document.getElementById("g").value = lineColor[1].toString(); 
     document.getElementById("b").value = lineColor[2].toString();
 
-    socket = io.connect('http://illus-traitor.herokuapp.com/');
+    socket = io.connect('illus-traitor.herokuapp.com/');
 
     lineThickness = parseInt(document.getElementById("thickness").value);
     var data = {
