@@ -20,9 +20,13 @@ a {
 .page-content {
     margin: 0;
     padding: 0;
-    position: relative;
+    position: absolute;
     z-index: 0;
     transition-duration: 1s;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 .sidebar {
@@ -101,13 +105,22 @@ canvas:active {
 }
 
 #chatbox{
-    background: #6190E8;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #6190E8;  
+    background: -webkit-linear-gradient(to right, #444343, #7b7c7b);  
+    background: linear-gradient(to right, #444343, #7b7c7b); 
 
-    margin-left: 60%;
-    margin-right: 10%;
+    position: absolute;
+    left: 80%;
+    right: 0%;
+    bottom: 0;
+    top: 0;
     display: flex; 
-    flex-direction: column;
+    flex-direction: column-reverse;
     border: 2px solid black;
+    border-radius: 10px;
+}
+#message-container {
+    color: white;
+    overflow-x: hidden; 
+    overflow-y: auto;
 }

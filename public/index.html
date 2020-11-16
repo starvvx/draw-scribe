@@ -19,11 +19,17 @@
           <label for="sidebartoggler"><img src="menu.png" width="50" height="50"></label>
     
       <div class="container" id="chatbox">
-          <div id="message-container"></div>
-          <form id="send-container">
-            <input type="text" id="message-input">
-            <button type="submit" id="send-button">Send</button>
+          <form id="send-container" style="position: fixed;">
+            <table>
+                <tr>
+                    <input type="text" id="message-input" style="width: 60%;">
+                    <button type="submit" id="send-button" style="width: 37%;border-radius: 10px;">
+                        Send
+                    </button>
+                </tr>
+            </table>
           </form>
+          <div id="message-container" style="margin-bottom: 29%;"></div>
       </div>
     
       </div>
