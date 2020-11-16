@@ -6,9 +6,9 @@ var cursorY;
 var eraserThickness;
 var eraserStatus;
 
-
 function setup() {
-    var canv = createCanvas(windowWidth, windowHeight);
+    // var canv = createCanvas(windowWidth, windowHeight);
+    var canv = createCanvas(0.8*windowWidth, 0.8*windowHeight)
     canv.parent('canvas');
     background(255,255,255);
 
@@ -26,7 +26,6 @@ function setup() {
         color: lineColor
     };
     socket.emit('changeSlider', data);
-    // console.log("Pressing");
     socket.on('mouse', newDrawing);
 }
 
@@ -44,7 +43,6 @@ function mousePressed() {
 function mouseDragged() {
     var mousex = mouseX;
     var mousey = mouseY;
-    // console.log("Pressing");
 
     cursorX = 0.90*cursorX+0.10*mousex;
     cursorY = 0.90*cursorY+0.10*mousey;
@@ -107,3 +105,4 @@ function toggleEraser() {
     };
     socket.emit('changeSlider', data);
 }
+

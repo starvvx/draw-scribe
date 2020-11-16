@@ -5,6 +5,8 @@
     <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
     <script language="javascript" type="text/javascript" src="sketch.js"></script>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 
     <title>illus-traitor</title>
@@ -15,6 +17,15 @@
     <div class="page-wrap">
       <div class="page-content" id="canvas">
           <label for="sidebartoggler"><img src="menu.png" width="50" height="50"></label>
+    
+      <div class="container" id="chatbox">
+          <div id="message-container"></div>
+          <form id="send-container">
+            <input type="text" id="message-input">
+            <button type="submit" id="send-button">Send</button>
+          </form>
+      </div>
+    
       </div>
       <div class="sidebar" id="options">
           <h2>illus-traitor</h2>
@@ -26,12 +37,12 @@
               <input onInput="changeSlider()" id="g" type="range" min="0" max="255" style="width: 100%;">
               <input onInput="changeSlider()" id="b" type="range" min="0" max="255" style="width: 100%;">
           </div>
+          
           <h4>Thickness</h4>
           <div class="siderbarel">
               <input onInput="changeSlider()" id="thickness" type="range" min="10" max="50" value="25" style="width: 100%;">
           </div>
           <br>
-          <!-- <input type="checkbox" id="isChecked"  > -->
           <button onclick="toggleEraser()" type="button" class="eraser">Eraser</button>
           <br>
           <br>
