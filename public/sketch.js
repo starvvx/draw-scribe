@@ -7,7 +7,6 @@ var eraserThickness;
 var eraserStatus;
 
 function setup() {
-    // var canv = createCanvas(windowWidth, windowHeight);
     var canv = createCanvas(0.8*windowWidth, windowHeight)
     canv.parent('canvas');
     background(255,255,255);
@@ -18,7 +17,7 @@ function setup() {
     document.getElementById("g").value = lineColor[1].toString(); 
     document.getElementById("b").value = lineColor[2].toString();
 
-    socket = io.connect('illus-traitor.herokuapp.com/');
+    socket = io.connect('draw-scribe.herokuapp.com/');
 
     lineThickness = parseInt(document.getElementById("thickness").value);
     var data = {
